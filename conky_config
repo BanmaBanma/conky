@@ -1,0 +1,73 @@
+use_spacer right
+use_xft yes
+font Microsoft YaHei:size=8
+xftfont Microsoft YaHei:size=8
+override_utf8_locale yes
+update_interval 3.0
+own_window yes
+own_window_type normal
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+own_window_argb_visual no
+own_window_argb_value 120
+double_buffer yes
+minimum_size 206 100
+maximum_width 420
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+default_color #000000
+default_shade_color 000000
+default_outline_color 000000
+alignment top_right
+gap_x 5
+gap_y 35
+cpu_avg_samples 2
+uppercase no 
+TEXT 
+${color gray}${font  方正宋一简体:style=Bold:pixelsize=12}$alignc$sysname $kernel 
+${alignc}conky version:${conky_version} 
+${color}$stippled_hr 
+${time %b%d日 星期%a}$alignr${time %p %l :%M}$font 
+${color #777777}Uptime :$color $uptime $alignr ${color #777777}T=${color}${acpitemp}°C
+${color #777777}CPU Total :${color #FC6300} ${cpu cpu0}% ${voffset 2}${cpubar cpu0} 
+${color #777777}CPU1 :${color #FC6300} ${cpu cpu1}% ${voffset 2}${cpubar cpu1} 
+${color #777777}CPU2 :${color #FC6300} ${cpu cpu2}% ${voffset 2}${cpubar cpu2} 
+${color #777777}CPU3 :${color #FC6300} ${cpu cpu3}% ${voffset 2}${cpubar cpu3} 
+${color #777777}CPU4 :${color #FC6300} ${cpu cpu4}% ${voffset 2}${cpubar cpu4} 
+$color${cpugraph 990000 ffffff 00A2FF -l} 
+${color #777777}RAM :${color #332bd7} $mem- $memperc%${tab 20}${voffset 2}${membar} 
+${color #777777}Swap :${color #332bd7} $swap - $swapperc%${tab 20}${voffset 2}${swapbar} 
+$color$stippled_hr 
+${color #777777}/${tab 20}${color #332bd7}${fs_free /}/${fs_size /} ${voffset 2}${fs_bar /} 
+${color #777777}/boot${tab 20}${color #332bd7}${fs_free /boot}/${fs_size /boot} ${voffset 2}${fs_bar /boot} 
+${color #777777}Read : $color$diskio_read${color #777777}${tab 20}Write : $color$diskio_write 
+$color${diskiograph_read 25,94 ff0000 0000ff} $color${diskiograph_write 0000ff ff0000} 
+${color #777777}Processors :$color $processes ${color #777777}Running :$color 
+$running_processes 
+${color #777777}CPU usage ${alignr}${offset -25}PID ${alignr}${offset -10}CPU% ${alignr}MEM% 
+${color #FF0000}${top name 1}${alignr}${offset -30}${top pid 1}${alignr}${offset -22}${top cpu 1}${alignr}${offset -8}${top mem 1} 
+${color #BB0000}${top name 2}${alignr}${offset -30}${top pid 2}${alignr}${offset -22}${top cpu 2}${alignr}${offset -8}${top mem 2} 
+${color #ff9130}${top name 3}${alignr}${offset -30}${top pid 3}${alignr}${offset -22}${top cpu 3}${alignr}${offset -8}${top mem 3} 
+${color #4562f4}${top name 4}${alignr}${offset -30}${top pid 4}${alignr}${offset -22}${top cpu 4}${alignr}${offset -8}${top mem 4} 
+$color$stippled_hr 
+${font Arial:style=Bold:pixelsize=10}${alignc}Public IP Information$font
+${color #777777}PPP0:${addr ppp0}${alignr}${color #777777}Wlan0:${addr wlan0}
+${color #777777}Lo :${addr lo}${alignr}${color #777777}Eth0 :${addr eth0} 
+ppp0:${totaldown ppp0}/${downspeed ppp0}↓-${totalup ppp0}/${upspeed ppp0}↑
+Wlan0:${totaldown wlan0}/${downspeed wlan0}↓-${totalup wlan0}/${upspeed wlan0}↑
+$color${downspeedgraph ppp0 25,94 ff0000 0000ff -l} $color${upspeedgraph ppp0 0000ff ff0000 -l} 
+${color #777777}Port(s)${alignr}#Connections 
+${color} Inbound: ${tcp_portmon 1 32767 count}${tab 15}Outbound: ${tcp_portmon 32768 61000 
+count}${alignr}ALL: ${tcp_portmon 1 65535 count} 
+${color #777777}Inbound Connections ${alignr} Local$color 
+${tcp_portmon 1 32767 rhost 0}${alignr}${tcp_portmon 1 32767   lservice 0}
+${tcp_portmon 1 32767 rhost 1}${alignr}${tcp_portmon 1 32767   lservice 1}
+${tcp_portmon 1 32767 rhost 2}${alignr}${tcp_portmon 1 32767   lservice 2}
+${color #777777}${voffset -8}Outbound Connections ${alignr} Remote$color 
+${tcp_portmon 32768 61000 rhost 0} ${alignr} ${tcp_portmon 32768 61000 rservice 0} 
+${tcp_portmon 32768 61000 rhost 1} ${alignr} ${tcp_portmon 32768 61000 rservice 1} 
+${tcp_portmon 32768 61000 rhost 2} ${alignr} ${tcp_portmon 32768 61000 rservice 2} 
+${tcp_portmon 32768 61000 rhost 3} ${alignr} ${tcp_portmon 32768 61000 rservice 3} 
+${tcp_portmon 32768 61000 rhost 4} ${alignr} ${tcp_portmon 32768 61000 rservice 4}
